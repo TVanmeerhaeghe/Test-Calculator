@@ -18,11 +18,21 @@ test.describe("Calculatrice - Tests E2E", () => {
     test("Soustraction de 10 - 4 donne 6", async ({ page }) => {
         await page.click('text=1');
         await page.click('text=0');
-        await page.click('text=-');
+        await page.click('text=−');
         await page.click('text=4');
         await page.click('text==');
 
         const result = await page.locator('.display p').innerText();
         expect(result).toBe('6');
+    });
+
+    test("Multiplication de 5 * 6 donne 30", async ({ page }) => {
+        await page.click('text=5');
+        await page.click('text=×');
+        await page.click('text=6');
+        await page.click('text==');
+
+        const result = await page.locator('.display p').innerText();
+        expect(result).toBe('30');
     });
 });
