@@ -22,6 +22,11 @@ describe("Historique", () => {
         expect(history.getAll()).toEqual(["2 * 3 = 6"]);
     });
 
+    test("ajoute une division à l'historique", () => {
+        history.addEntry(10, 2, "/", 5);
+        expect(history.getAll()).toEqual(["10 / 2 = 5"]);
+    });
+
     test("ajoute plusieurs opérations à l'historique", () => {
         history.addEntry(2, 3, "+", 5);
         history.addEntry(5, 3, "-", 2);

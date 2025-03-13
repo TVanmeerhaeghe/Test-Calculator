@@ -47,3 +47,23 @@ describe("Multiplication", () => {
         expect(calc.multiply(88, 0)).toBe(0);
     });
 });
+
+describe("Division", () => {
+    let calc;
+
+    beforeEach(() => {
+        calc = new Calculator();
+    });
+
+    test("division de 10 par 2 retourne 5", () => {
+        expect(calc.divide(10, 2)).toBe(5);
+    });
+
+    test("division avec un résultat décimal fonctionne", () => {
+        expect(calc.divide(7, 2)).toBeCloseTo(3.5);
+    });
+
+    test("division par zéro retourne null", () => {
+        expect(calc.divide(42, 0)).toBeNull();
+    });
+});
