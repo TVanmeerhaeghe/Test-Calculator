@@ -74,4 +74,16 @@ test.describe("Calculatrice - Tests E2E", () => {
         const historyEntry = await page.locator('.history ul li').first().innerText();
         expect(historyEntry).toBe("7 + 8 = 15");
     });
+
+    test("Cliquer sur un calcul de l'historique le remet dans l'affichage", async ({ page }) => {
+        await page.click('text=3');
+        await page.click('text=+');
+        await page.click('text=5');
+        await page.click('text==');
+
+        await page.locator('.history ul li').first().click();
+
+        const result = await page.locator('.display p').innerText();
+        expect(result).toBe("3 + 5");
+    });
 });
