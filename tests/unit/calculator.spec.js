@@ -54,4 +54,21 @@ describe("Historique", () => {
         calc.multiply(3, 5);
         expect(calc.history).toEqual(["3 * 5 = 15"]);
     });
+
+    test("ajoute plusieurs calculs à l'historique", () => {
+        calc.add(2, 3);
+        calc.subtract(10, 4);
+        calc.multiply(3, 5);
+        expect(calc.history).toEqual([
+            "2 + 3 = 5",
+            "10 - 4 = 6",
+            "3 * 5 = 15"
+        ]);
+    });
+
+    test("efface l'historique", () => {
+        calc.add(5, 2);
+        calc.clearHistory();
+        expect(calc.history).toEqual([]);
+    });
 });

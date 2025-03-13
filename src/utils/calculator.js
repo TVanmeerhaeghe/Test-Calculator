@@ -37,4 +37,7 @@ export class Calculator {
         this.history.push(`${a} ${operator} ${b} = ${result}`);
     }
 
+    clearHistory() {
+        this.history = [];
+    }
 }
