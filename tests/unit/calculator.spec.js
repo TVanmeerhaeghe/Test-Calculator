@@ -1,4 +1,4 @@
-import { add } from '../src/utils/calculator';
+import { add } from '../../src/utils/calculator';
 
 describe("Addition", () => {
     test("addition de 2 et 3 retourne 5", () => {
