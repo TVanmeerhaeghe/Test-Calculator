@@ -1,13 +1,35 @@
+import js from "@eslint/js";
+import vue from "eslint-plugin-vue";
 import globals from "globals";
-import pluginJs from "@eslint/js";
-import pluginVue from "eslint-plugin-vue";
-import pluginJest from "eslint-plugin-jest";
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
-  { files: ["**/*.{js,mjs,cjs,vue}"] },
-  { languageOptions: { globals: { ...globals.browser, ...globals.node, ...globals.jest } } },
-  pluginJs.configs.recommended,
-  ...pluginVue.configs["flat/essential"],
-  pluginJest.configs.recommended
+  {
+    files: ["**/*.{js,mjs,cjs,ts,vue}"],
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      }
+    },
+    rules: {
+      "no-unused-vars": "warn"
+    }
+  },
+  js.configs.recommended,
+  ...vue.configs["flat/essential"],
+  {
+    rules: {
+      "vue/multi-word-component-names": "off"
+    }
+  },
+  {
+    files: ["tests/**/*.spec.{js,ts}", "tests/**/*.test.{js,ts}"],
+    languageOptions: {
+      globals: {
+        ...globals.jest
+      }
+    }
+  }
 ];

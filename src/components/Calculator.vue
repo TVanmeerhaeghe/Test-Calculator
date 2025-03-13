@@ -120,7 +120,7 @@ export default {
                     this.currentInput = result.toString();
                     this.lastResultUsed = true;
                 }
-            } catch (error) {
+            } catch {
                 this.currentInput = "Erreur";
             }
         },
