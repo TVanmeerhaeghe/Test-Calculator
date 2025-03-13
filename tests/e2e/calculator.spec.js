@@ -56,4 +56,12 @@ test.describe("Calculatrice - Tests E2E", () => {
         const result = await page.locator('.display p').innerText();
         expect(result).toBe('Erreur');
     });
+
+    test("Le bouton 'C' réinitialise l'affichage", async ({ page }) => {
+        await page.click('text=9');
+        await page.click('text=C');
+
+        const result = await page.locator('.display p').innerText();
+        expect(result).toBe('0');
+    });
 });
