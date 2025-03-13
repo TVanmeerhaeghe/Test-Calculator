@@ -64,4 +64,14 @@ test.describe("Calculatrice - Tests E2E", () => {
         const result = await page.locator('.display p').innerText();
         expect(result).toBe('0');
     });
+
+    test("L'historique sauvegarde un calcul", async ({ page }) => {
+        await page.click('text=7');
+        await page.click('text=+');
+        await page.click('text=8');
+        await page.click('text==');
+
+        const historyEntry = await page.locator('.history ul li').first().innerText();
+        expect(historyEntry).toBe("7 + 8 = 15");
+    });
 });
