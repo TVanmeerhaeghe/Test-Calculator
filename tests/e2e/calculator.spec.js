@@ -35,4 +35,15 @@ test.describe("Calculatrice - Tests E2E", () => {
         const result = await page.locator('.display p').innerText();
         expect(result).toBe('30');
     });
+
+    test("Division de 15 / 3 donne 5", async ({ page }) => {
+        await page.click('text=1');
+        await page.click('text=5');
+        await page.click('text=÷');
+        await page.click('text=3');
+        await page.click('text==');
+
+        const result = await page.locator('.display p').innerText();
+        expect(result).toBe('5');
+    });
 });
