@@ -1,8 +1,9 @@
-module.exports = {
+export default {
   preset: '@vue/cli-plugin-unit-jest/presets/no-babel',
   testEnvironment: "jsdom",
   transform: {
-    "^.+\\.vue$": "vue-jest",
+    "^.+\\.vue$": "@vue/vue3-jest",
     "^.+\\.js$": "babel-jest"
   }
-}
+};
+

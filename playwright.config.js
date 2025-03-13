@@ -1,9 +1,10 @@
-const { defineConfig } = require('@playwright/test');
+import { defineConfig } from '@playwright/test';
 
-module.exports = defineConfig({
+export default defineConfig({
     webServer: {
         command: 'npm run dev',
         port: 5173,
         reuseExistingServer: true
     }
 });
+
