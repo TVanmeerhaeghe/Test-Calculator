@@ -108,8 +108,11 @@ export default {
                         result = this.calculator.multiply(a, b);
                         break;
                     case "/":
-                        result = this.calculator.divide(a, b);
-                        break;
+                        if (b === 0) {
+                            result = "Erreur";
+                        } else {
+                            result = this.calculator.divide(a, b);
+                        }
                 }
 
                 if (result !== null) {

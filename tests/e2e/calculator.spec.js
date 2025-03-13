@@ -46,4 +46,14 @@ test.describe("Calculatrice - Tests E2E", () => {
         const result = await page.locator('.display p').innerText();
         expect(result).toBe('5');
     });
+
+    test("Division par 0 affiche 'Erreur'", async ({ page }) => {
+        await page.click('text=5');
+        await page.click('text=÷');
+        await page.click('text=0');
+        await page.click('text==');
+
+        const result = await page.locator('.display p').innerText();
+        expect(result).toBe('Erreur');
+    });
 });
